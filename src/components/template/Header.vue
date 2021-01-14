@@ -18,12 +18,12 @@ export default {
   },
   computed: {
     icon() {
-      return "fa-angle-left"
+      return this.$store.state.isMenuVisible ? "fa-angle-left" : "fa-angle-down"
     }
   },
   methods: {
     toggleMenu() {
-      
+      this.$store.commit('toggleMenu')
     }
   }
 }
@@ -33,7 +33,6 @@ export default {
   .header {
     grid-area: header;
     background: linear-gradient(to right, #1e4694, #49a7c1);
-    padding: 20px;
 
     display: flex;
     justify-content: center;
