@@ -1,6 +1,6 @@
 <template>
 	<div id="app" :class="{'hide-menu': !isMenuVisible || !user}">
-		<Header title="Cod3r - Base de conhecimento"
+		<Header title="Cod3r - Base de Conhecimento" 
 			:hideToggle="!user"
 			:hideUserDropdown="!user" />
 		<Menu v-if="user" />
@@ -32,21 +32,25 @@ export default {
 	methods: {
 		async validateToken() {
 			this.validatingToken = true
-
+			
 			const json = localStorage.getItem(userKey)
 			const userData = JSON.parse(json)
 			this.$store.commit('setUser', null)
 
-			if (!userData) {	
+			if (!userData) {
 				this.validatingToken = false
 				this.$router.push({ name: 'auth' })
 				return
 			}
-
+			
 			const res = await axios.post(`${baseApiUrl}/validateToken`, userData)
-
+			
 			if (res.data) {
 				this.$store.commit('setUser', userData)
+				
+				if (this.$mq === 'xs' || this.$mq === 'sm') {
+					this.$store.commit('toggleMenu', false)
+				}
 			} else {
 				localStorage.removeItem(userKey)
 				this.$router.push({ name: 'auth' })
@@ -78,14 +82,14 @@ export default {
 		display: grid;
 		grid-template-rows: 60px 1fr 40px;
 		grid-template-columns: 300px 1fr;
-		grid-template-areas: 
+		grid-template-areas:
 			"header header"
 			"menu content"
 			"menu footer";
 	}
-
+	
 	#app.hide-menu {
-		grid-template-areas: 
+		grid-template-areas:
 			"header header"
 			"content content"
 			"footer footer";
