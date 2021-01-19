@@ -8,7 +8,7 @@
       <Stat title="Artigos" :value="stat.articles"
         icon="fa fa-file" color="#3bc480" />
       <Stat title="Usuários" :value="stat.users"
-        icon="fa fa-user" color="#3282dc" />
+        icon="fa fa-user" color="#3282cd" />
     </div>
   </div>
 </template>

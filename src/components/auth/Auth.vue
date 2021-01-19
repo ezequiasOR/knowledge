@@ -74,14 +74,14 @@ export default {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .auth-title {
     font-size: 1.2rem;
     font-weight: 100;
     margin-top: 10px;
     margin-bottom: 15px;
   }
-  
+
   .auth-modal input {
     border: 1px solid #BBB;
     width: 100%;
@@ -89,18 +89,18 @@ export default {
     padding: 3px 8px;
     outline: none;
   }
-  
+
   .auth-modal button {
     align-self: flex-end;
     background-color: #2460ae;
     color: #FFF;
     padding: 5px 15px;
   }
-  
+
   .auth-modal a {
     margin-top: 35px;
   }
-  
+
   .auth-modal hr {
     border: 0;
     width: 100%;
